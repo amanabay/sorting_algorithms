@@ -21,17 +21,18 @@ void swap(int *x, int *y)
  * scheme
  *
  * @array: array to be partitioned
+ * @size: size of array
  * @high: end of the array
  * @low: starting comparison point
  */
 
 int lomuto_partition(int array[], size_t size, int low, int high)
 {
-	int pivot = array[high], i = low - 1, j = low;
+	int pivot = array[high], i = low - 1, j;
  
 	for (j = low; j <= high - 1; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < pivot)
 		{
 			i++;
 			swap(&array[i], &array[j]);
@@ -47,6 +48,7 @@ int lomuto_partition(int array[], size_t size, int low, int high)
  *
  * @array: array to be sorted
  * @high: end of the array
+ * @size: size of array
  * @low: starting comparison point
  *
  */
